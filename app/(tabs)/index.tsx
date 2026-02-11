@@ -1,5 +1,5 @@
 import { useTheme } from "../../hooks/useTheme";
-import { StatusBar, View } from "react-native";
+import { View } from "react-native";
 import ExploreContent from "../components/Content/ExploreContent";
 import TopNav from "../components/Navigation/TopNav";
 
