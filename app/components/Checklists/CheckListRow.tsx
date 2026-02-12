@@ -96,7 +96,7 @@ export default function ChecklistRow({
           >
             {/* gradient border wrapper */}
             <LinearGradient
-              colors={["#FFFFFF", "#EFEFEF"]}
+              colors={["#EFEFEF", "#E1E1E1"]}
               start={{ x: 0, y: 0 }}
               end={{ x: 0, y: 1 }}
               style={{
