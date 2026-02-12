@@ -39,7 +39,7 @@ export default function TopNav({
         <StatusBar
           translucent
           backgroundColor="transparent"
-          // barStyle={colors.statusBarStyle}
+          barStyle={colors.statusBarStyle}
           animated={true}
         />
 

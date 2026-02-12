@@ -67,7 +67,7 @@ export default function TopNavFilters({ items }: TopNavFiltersProps) {
 
             {active && (
               <View
-                style={[styles.indicator, { backgroundColor: colors.primary }]}
+                style={[styles.indicator, { backgroundColor: colors.text }]}
               />
             )}
           </TouchableOpacity>

@@ -33,7 +33,7 @@ export default function ChecklistRow({
       <View
         style={{
           borderRadius: 24,
-          backgroundColor: "#FFF",
+          backgroundColor: colors.surface,
           padding: 1,
           shadowColor: "#000",
           shadowOffset: { width: 0, height: 2 },
@@ -43,7 +43,7 @@ export default function ChecklistRow({
         }}
       >
         <LinearGradient
-          colors={["#FAFAFA", "#FFFFFF"]}
+          colors={colors.checklist.gradients.primary}
           start={{ x: 0, y: 0 }}
           end={{ x: 0, y: 1 }}
           style={{

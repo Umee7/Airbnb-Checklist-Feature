@@ -124,7 +124,11 @@ export const primitive = {
   },
 
   opacity: {
-    red: "#FF385C33",
+    red: {
+      light: "#FFEBEF00",
+      dark: "#D10A4633",
+    },
+
     dim: "#22222299",
     black: "#22222226",
     orange: "#E0791280",
@@ -172,6 +176,15 @@ export interface ColorScheme {
     empty: [string, string];
     navigation: [string, string];
   };
+  checklist: {
+    surface: {
+      primary: [string];
+    };
+    gradients: {
+      primary: [string, string];
+      secondary: [string, string];
+    };
+  };
   backgrounds: {
     input: string;
     editInput: string;
@@ -207,6 +220,16 @@ const lightColors: ColorScheme = {
     muted: [primitive.grey[400], primitive.grey[700]],
     empty: [primitive.grey[50], primitive.grey[200]],
     navigation: [primitive.gradients.navFrom, primitive.gradients.navTo],
+  },
+
+  checklist: {
+    surface: {
+      primary: [primitive.grey[900]],
+    },
+    gradients: {
+      primary: [primitive.grey[50], primitive.bw.white],
+      secondary: [primitive.red[50], primitive.bw.white],
+    },
   },
 
   backgrounds: {
@@ -245,6 +268,16 @@ const darkColors: ColorScheme = {
     muted: ["#444444", primitive.grey[800]],
     empty: ["#2B2B2B", "#333333"],
     navigation: [primitive.bw.black, primitive.bw.black],
+  },
+
+  checklist: {
+    surface: {
+      primary: [primitive.grey[900]],
+    },
+    gradients: {
+      primary: [primitive.grey[900], primitive.bw.black],
+      secondary: [primitive.opacity.red.dark, primitive.opacity.red.light],
+    },
   },
 
   backgrounds: {
