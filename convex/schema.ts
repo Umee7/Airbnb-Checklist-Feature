@@ -9,4 +9,20 @@ export default defineSchema({
     time: v.optional(v.string()),
     category: v.string(),
   }).index("by_day", ["day"]),
+
+  wishlistCollections: defineTable({
+    name: v.string(),
+    createdAt: v.number(),
+  }),
+
+  wishlistItems: defineTable({
+    listingId: v.string(),
+    collectionId: v.id("wishlistCollections"),
+    createdAt: v.number(),
+  }),
+
+  recentlyViewed: defineTable({
+    listingId: v.string(),
+    viewedAt: v.number(),
+  }),
 });
