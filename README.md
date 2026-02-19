@@ -1,50 +1,115 @@
-# Welcome to your Expo app 👋
+# Reimagining Airbnb — Designed by Umee, Built by Umee
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+![Explore Screen](./assets/images/airbnb-thumbnail.png)
+&nbsp;
 
-## Get started
+---
 
-1. Install dependencies
+## The Story
 
-   ```bash
-   npm install
-   ```
+One day I opened Airbnb, started scrolling, and couldn't stop noticing things. The way the nav bar fades into a gradient. The spring on the card press. The way every screen feels considered, not just designed. I thought — I want to build that. Not to copy it, but to get close enough to understand how it thinks, and then add something to it in the same voice.
 
-2. Start the app
+So I opened Figma and started from zero. Every icon drawn by hand. Every color token named with intent. Every spacing decision made before a single component was written. Weeks later, I had a design system. Then I had a codebase that matched it.
 
-   ```bash
-   npx expo start
-   ```
+This is that project.
 
-In the output, you'll find options to open the app in a
+> [→ View Figma File](https://www.figma.com/design/sWIdRMMikwCbs8d71Y6gaF/Airbnb-Redesign-by-Umee?node-id=0-1&t=dmc5o5ssNdfKSlhM-1)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## The Design System
 
-## Get a fresh project
+Everything starts with tokens.
 
-When you're ready, run:
+I built the system in layers — primitive values first (raw colors, spacing, type scale), then semantic tokens that give those values meaning (`surface.primary`, `text.muted`, `border.subtle`). Dark and light mode aren't a toggle slapped on at the end — every token maps to both themes from the start, persisted via AsyncStorage so the app remembers your preference.
 
-```bash
-npm run reset-project
+The icon set is custom SVG, drawn in Figma. The gradient system — navigation bar, card overlays, ambient surfaces — comes from a dedicated token layer too.
+
+The Figma file and the codebase use the same naming. Handoff to yourself is a different kind of discipline.
+
+---
+
+## Where It Stands
+
+### Home / Explore — Done
+
+The home screen was the first real test. Scroll orchestration, gradient nav bar that responds to position, horizontal carousels, listing cards with wishlist interaction, safe area handling across devices. Haptic feedback on the interactions that deserve it.
+
+Getting the motion right took time. Spring physics, not linear easing. It's a small thing that changes how the whole app feels.
+
+![Explore Screen](./assets/images/thumbnail.png)
+
+&nbsp;
+
+### Trip Planning Checklist — Done
+
+This is the original feature. It lives in the Trips tab and walks users through the early stages of planning a trip — saving a stay, reserving accommodation, reaching out to a host.
+
+The interesting challenge wasn't the checklist logic. It was designing it so it sits inside Airbnb's product without feeling added later. Same type scale, same spacing rhythm, same interaction patterns. It feels like it shipped with the app because it was designed in the same system.
+
+State is persisted via Convex — progress survives app restarts. Animations are coordinated (opacity + translate together). Haptics fire on completion.
+
+![Trip Planning Checklist](./assets/images/trips-screen.png)
+
+![Checklist Feature](./assets/readme/checklist-banner.png)
+
+---
+
+## Stack
+
+**Design** — Figma (system, components, prototypes, icons)
+
+**Frontend** — React Native, Expo Router, TypeScript, Animated API, Expo Haptics, Expo AV
+
+**Backend** — Convex (real-time, schema-first, queries + mutations)
+
+---
+
+## Structure
+
+```
+app/
+ ├── explore/
+ ├── trips/
+ ├── wishlist/
+components/
+ ├── cards/
+ ├── navigation/
+ ├── checklists/
+hooks/
+ ├── useTheme
+ ├── useHaptics
+convex/
+ ├── schema.ts
+ ├── queries/
+ ├── mutations/
+tokens/
+ ├── primitives.ts
+ ├── semantic.ts
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## What's Next
 
-To learn more about developing your project with Expo, look at the following resources:
+- Listing detail screen
+- Wishlist collections
+- Recently viewed history
+- Full trip + itinerary object model
+- User data persistence
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+## Run It
 
-Join our community of developers creating universal apps.
+```bash
+git clone <repo-url>
+cd project
+npm install
+npx convex dev
+npx expo start
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+*Designed and built by Umee*
