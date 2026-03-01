@@ -6,9 +6,16 @@ import { useState } from "react";
 import WishlistCard from "@/components/Cards/WishlistCard";
 import CloseIcon from "../../components/Icons/AddIcon";
 
+import { ALL_LISTINGS } from "@/lib/listings";
+import { useWishlist } from "@/hooks/useWishlist";
+import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
+
 export default function Wishlists() {
   const { colors } = useTheme();
   const [isEditing, setIsEditing] = useState(false);
+
+  const { isLiked, toggleLike } = useWishlist();
+  const { recent } = useRecentlyViewed();
 
   // ----- LAYOUT CONSTANTS -----
   const SIDE_PADDING = 24;
@@ -19,42 +26,76 @@ export default function Wishlists() {
 
   // ----- MOCK DATA -----
 
-  const recentlyViewedImages = [
-    require("../../assets/card.png"),
-    require("../../assets/card2.jpg"),
-    require("../../assets/card.png"),
-    require("../../assets/card2.jpg"),
-  ];
+  // const recentlyViewedImages = [
+  //   require("../../assets/card.png"),
+  //   require("../../assets/card2.jpg"),
+  //   require("../../assets/card.png"),
+  //   require("../../assets/card2.jpg"),
+  // ];
 
+  // const collections = [
+  //   {
+  //     id: "recent",
+  //     variant: "grid",
+  //     title: "Recently viewed",
+  //     subtitle: "12 stays",
+  //     images: recentlyViewedImages,
+  //   },
+  //   {
+  //     id: "1",
+  //     variant: "single",
+  //     title: "Goa Trip",
+  //     subtitle: "4 stays",
+  //     image: require("../../assets/card.png"),
+  //   },
+  //   {
+  //     id: "2",
+  //     variant: "single",
+  //     title: "Beach Stays",
+  //     subtitle: "7 stays",
+  //     image: require("../../assets/card2.jpg"),
+  //   },
+  //   {
+  //     id: "3",
+  //     variant: "single",
+  //     title: "Beach Stays",
+  //     subtitle: "7 stays",
+  //     image: require("../../assets/card.png"),
+  //   },
+  // ];
+
+  // ----- DERIVED DATA FROM BACKEND -----
+
+  const likedListings = ALL_LISTINGS.filter((l) => isLiked(l.id));
+
+  const recentListings = recent
+    .map((r) => ALL_LISTINGS.find((l) => l.id === r.listingId))
+    .filter(Boolean);
+
+  // recently viewed preview (first 4)
+  const recentlyViewedImages = recentListings.slice(0, 4).map((l) => l!.image);
+
+  // build collections UI structure (same shape as before)
   const collections = [
-    {
-      id: "recent",
-      variant: "grid",
-      title: "Recently viewed",
-      subtitle: "12 stays",
-      images: recentlyViewedImages,
-    },
-    {
-      id: "1",
+    ...(recentlyViewedImages.length > 0
+      ? [
+          {
+            id: "recent",
+            variant: "grid",
+            title: "Recently viewed",
+            subtitle: `${recentListings.length} stays`,
+            images: recentlyViewedImages,
+          },
+        ]
+      : []),
+
+    ...likedListings.map((item) => ({
+      id: item.id,
       variant: "single",
-      title: "Goa Trip",
-      subtitle: "4 stays",
-      image: require("../../assets/card.png"),
-    },
-    {
-      id: "2",
-      variant: "single",
-      title: "Beach Stays",
-      subtitle: "7 stays",
-      image: require("../../assets/card2.jpg"),
-    },
-    {
-      id: "3",
-      variant: "single",
-      title: "Beach Stays",
-      subtitle: "7 stays",
-      image: require("../../assets/card.png"),
-    },
+      title: item.title,
+      subtitle: item.subtitle,
+      image: item.image,
+    })),
   ];
 
   return (
@@ -133,7 +174,11 @@ export default function Wishlists() {
                 images={(item as any).images}
                 isEditing={isRecent ? false : isEditing}
                 Icon={isRecent ? undefined : CloseIcon}
-                onDelete={() => {}}
+                onDelete={() => {
+                  if (!isRecent) {
+                    toggleLike(item.id);
+                  }
+                }}
               />
             </View>
           );
