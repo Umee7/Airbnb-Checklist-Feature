@@ -130,8 +130,8 @@ import { useTheme, primitive } from "../../hooks/useTheme";
 import { Text, View, Pressable, FlatList, Dimensions } from "react-native";
 import { useState } from "react";
 
-import WishlistCard from "../components/Cards/WishlistCard";
-import CloseIcon from "../components/Icons/AddIcon";
+import WishlistCard from "@/components/Cards/WishlistCard";
+import CloseIcon from "../../components/Icons/AddIcon";
 
 export default function Wishlists() {
   const { colors } = useTheme();
