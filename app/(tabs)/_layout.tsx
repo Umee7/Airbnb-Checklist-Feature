@@ -1,10 +1,10 @@
 import { Tabs } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import SearchIcon from "../components/Icons/SearchIcon";
-import ProfileIcon from "../components/Icons/ProfileIcon";
-import TripsIcon from "../components/Icons/TripsIcon";
-import MessageIcon from "../components/Icons/MessageIcon";
-import WishListsIcon from "../components/Icons/WishListsIcon";
+import SearchIcon from "../../components/Icons/SearchIcon";
+import ProfileIcon from "../../components/Icons/ProfileIcon";
+import TripsIcon from "../../components/Icons/TripsIcon";
+import MessageIcon from "../../components/Icons/MessageIcon";
+import WishListsIcon from "../../components/Icons/WishListsIcon";
 import { useTheme } from "../../hooks/useTheme";
 
 export default function TabsLayout() {
@@ -31,6 +31,7 @@ export default function TabsLayout() {
           fontWeight: 700,
         },
         headerShown: false,
+        tabBarHideOnKeyboard: true,
       }}
     >
       <Tabs.Screen

@@ -39,7 +39,7 @@ export default function TopNav({
         <StatusBar
           translucent
           backgroundColor="transparent"
-          // barStyle={colors.statusBarStyle}
+          barStyle={colors.statusBarStyle}
           animated={true}
         />
 
@@ -59,15 +59,15 @@ export default function TopNav({
             items={[
               {
                 label: "Homes",
-                image: require("../../../assets/images/image13.png"),
+                image: require("../../assets/images/image13.png"),
               },
               {
                 label: "Experiences",
-                image: require("../../../assets/images/image23.png"),
+                image: require("../../assets/images/image23.png"),
               },
               {
                 label: "Services",
-                image: require("../../../assets/images/image16.png"),
+                image: require("../../assets/images/image16.png"),
               },
             ]}
           />
