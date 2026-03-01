@@ -10,19 +10,22 @@ export default defineSchema({
     category: v.string(),
   }).index("by_day", ["day"]),
 
-  wishlistCollections: defineTable({
-    name: v.string(),
-    createdAt: v.number(),
-  }),
+  // wishlistCollections: defineTable({
+  //   name: v.string(),
+  //   createdAt: v.number(),
+  // }),
 
   wishlistItems: defineTable({
     listingId: v.string(),
-    collectionId: v.id("wishlistCollections"),
     createdAt: v.number(),
-  }),
+  })
+    .index("by_listing", ["listingId"])
+    .index("by_createdAt", ["createdAt"]),
 
   recentlyViewed: defineTable({
     listingId: v.string(),
     viewedAt: v.number(),
-  }),
+  })
+    .index("by_listing", ["listingId"])
+    .index("by_viewedAt", ["viewedAt"]),
 });

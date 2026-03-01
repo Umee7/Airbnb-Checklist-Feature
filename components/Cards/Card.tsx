@@ -1,5 +1,5 @@
 import { useTheme } from "@/hooks/useTheme";
-import React, { useState } from "react";
+import React from "react";
 import {
   View,
   Text,
@@ -10,25 +10,33 @@ import {
 } from "react-native";
 
 interface CardProps {
+  id: string;
   title: string;
   subtitle: string;
   image?: ImageSourcePropType;
   badgeText?: string;
   Icon?: React.ComponentType<any>;
+
+  liked: boolean;
+  onToggleLike: () => void;
+  onPress: () => void;
 }
 
 export default function Card({
+  id,
   title,
   subtitle,
   image,
   badgeText,
   Icon,
+  liked,
+  onToggleLike,
+  onPress,
 }: CardProps) {
   const { colors } = useTheme();
-  const [liked, setLiked] = useState(false);
 
   return (
-    <View style={styles.card}>
+    <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.9}>
       <ImageBackground source={image} style={styles.imageFrame}>
         {badgeText && (
           <View style={styles.badge}>
@@ -39,7 +47,10 @@ export default function Card({
         {Icon && (
           <TouchableOpacity
             style={styles.iconWrapper}
-            onPress={() => setLiked(!liked)}
+            onPress={(e) => {
+              e.stopPropagation(); // prevent card press
+              onToggleLike();
+            }}
           >
             <Icon
               width={24}
@@ -51,7 +62,6 @@ export default function Card({
         )}
       </ImageBackground>
 
-      {/* TEXT BLOCK (auto-layout equivalent) */}
       <View style={styles.textContainer}>
         <Text numberOfLines={2} style={[styles.title, { color: colors.text }]}>
           {title}
@@ -61,14 +71,14 @@ export default function Card({
           {subtitle}
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
     width: 160,
-    gap: 8, // image → text block
+    gap: 8,
   },
 
   imageFrame: {
@@ -81,7 +91,7 @@ const styles = StyleSheet.create({
   },
 
   textContainer: {
-    gap: 2, // title → subtitle
+    gap: 2,
   },
 
   badge: {

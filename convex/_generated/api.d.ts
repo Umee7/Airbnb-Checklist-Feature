@@ -9,6 +9,8 @@
  */
 
 import type * as checklists from "../checklists.js";
+import type * as recentlyViewed from "../recentlyViewed.js";
+import type * as wishlist from "../wishlist.js";
 
 import type {
   ApiFromModules,
@@ -18,6 +20,8 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   checklists: typeof checklists;
+  recentlyViewed: typeof recentlyViewed;
+  wishlist: typeof wishlist;
 }>;
 
 /**
