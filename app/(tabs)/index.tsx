@@ -1,7 +1,7 @@
 import { useTheme } from "../../hooks/useTheme";
 import { View } from "react-native";
-import ExploreContent from "../components/Content/ExploreContent";
-import TopNav from "../components/Navigation/TopNav";
+import ExploreContent from "../../components/Content/ExploreContent";
+import TopNav from "../../components/Navigation/TopNav";
 
 export default function Index() {
   const { colors } = useTheme();

@@ -1,6 +1,6 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useTheme } from "../../hooks/useTheme";
-import ChecklistFeature from "../components/Checklists/ChecklistFeature";
+import ChecklistFeature from "../../components/Checklists/ChecklistFeature";
 import { View, Text } from "react-native";
 
 export default function Trips() {

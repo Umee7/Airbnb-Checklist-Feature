@@ -148,9 +148,9 @@ export default function Wishlists() {
 
   const recentlyViewedImages = [
     require("../../assets/card.png"),
+    require("../../assets/card2.jpg"),
     require("../../assets/card.png"),
-    require("../../assets/card.png"),
-    require("../../assets/card.png"),
+    require("../../assets/card2.jpg"),
   ];
 
   const collections = [
@@ -173,7 +173,7 @@ export default function Wishlists() {
       variant: "single",
       title: "Beach Stays",
       subtitle: "7 stays",
-      image: require("../../assets/card.png"),
+      image: require("../../assets/card2.jpg"),
     },
     {
       id: "3",
@@ -190,14 +190,14 @@ export default function Wishlists() {
       <View
         style={{
           paddingHorizontal: SIDE_PADDING,
-          paddingTop: 16,
+          paddingTop: 4,
           alignItems: "flex-end",
         }}
       >
         <Pressable
           onPress={() => setIsEditing(!isEditing)}
           style={{
-            paddingVertical: 12,
+            paddingVertical: 10,
             paddingHorizontal: 22,
             justifyContent: "center",
             alignItems: "center",
@@ -219,12 +219,12 @@ export default function Wishlists() {
       </View>
 
       {/* HEADING */}
-      <View style={{ paddingHorizontal: SIDE_PADDING, paddingTop: 16 }}>
+      <View style={{ paddingHorizontal: SIDE_PADDING, paddingTop: 4 }}>
         <Text
           style={{
             color: colors.text,
-            fontSize: 32,
-            fontWeight: "800",
+            fontSize: 28,
+            fontWeight: "900",
             letterSpacing: -0.5,
           }}
         >

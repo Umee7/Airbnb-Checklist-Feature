@@ -1,0 +1,17 @@
+import * as React from "react";
+import Svg, { Path, SvgProps } from "react-native-svg";
+
+export default function AddIcon({
+  width = 24,
+  height = 24,
+  color = "white",
+}: SvgProps) {
+  return (
+    <Svg width={width} height={height} viewBox="0 0 24 24" fill="none">
+      <Path
+        d="M11.9941 5.25C12.4084 5.25 12.7441 5.58579 12.7441 6V11.2451H18C18.4142 11.2451 18.75 11.5809 18.75 11.9951C18.75 12.4093 18.4142 12.7451 18 12.7451H12.7441V18C12.7441 18.4142 12.4084 18.75 11.9941 18.75C11.5799 18.75 11.2441 18.4142 11.2441 18V12.7451H6C5.58579 12.7451 5.25 12.4093 5.25 11.9951C5.25 11.5809 5.58579 11.2451 6 11.2451H11.2441V6C11.2441 5.58579 11.5799 5.25 11.9941 5.25Z"
+        fill={color}
+      />
+    </Svg>
+  );
+}
