@@ -44,21 +44,6 @@ export default function WishlistCard({
         )}
 
         {/* GRID IMAGE */}
-        {/*{variant === "grid" && (
-          <View style={styles.gridWrapper}>
-            {(images.length ? images : new Array(4).fill(null)).map(
-              (img, i) => (
-                <View key={i} style={styles.gridCell}>
-                  {img ? (
-                    <Image source={img} style={styles.fullImage} />
-                  ) : (
-                    <View style={styles.placeholder} />
-                  )}
-                </View>
-              ),
-            )}
-          </View>
-        )}*/}
         {variant === "grid" && (
           <View style={styles.gridWrapper}>
             {(images.length ? images : Array(4).fill(null)).map((img, i) => (
@@ -79,8 +64,14 @@ export default function WishlistCard({
 
         {/* DELETE ICON */}
         {isEditing && Icon && (
-          <TouchableOpacity style={styles.deleteIcon} onPress={onDelete}>
-            <Icon width={24} height={24} />
+          <TouchableOpacity
+            style={[
+              styles.deleteIcon,
+              { backgroundColor: colors.buttons.surface },
+            ]}
+            onPress={onDelete}
+          >
+            <Icon width={16} height={16} color={colors.buttons.textOnSurface} />
           </TouchableOpacity>
         )}
       </View>
@@ -145,16 +136,23 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 8,
     left: 8,
+
+    height: 28,
+    width: 28,
+    borderRadius: 80,
+
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   textContainer: {},
 
   title: {
-    fontSize: 14,
-    fontWeight: "600",
+    fontSize: 15,
+    fontWeight: "700",
   },
 
   subtitle: {
-    fontSize: 12,
+    fontSize: 15,
   },
 });

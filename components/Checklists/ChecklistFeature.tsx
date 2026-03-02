@@ -33,7 +33,7 @@ export default function ChecklistFeature({ colors }: any) {
   const visibleItems = checklistItems.filter((i) => !i.completed);
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, paddingTop: 24 }}>
       <FlatList
         data={visibleItems}
         keyExtractor={(item) => item._id}

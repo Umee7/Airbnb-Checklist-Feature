@@ -135,7 +135,14 @@ export default function AddChecklistSheet({
               alignItems: "center",
             }}
           >
-            <Text style={{ color: colors.text, fontSize: 16 }}>
+            <Text
+              style={{
+                color: colors.text,
+                fontSize: 18,
+                fontWeight: "900",
+                letterSpacing: -0.5,
+              }}
+            >
               Add checklist item
             </Text>
 
@@ -209,7 +216,11 @@ export default function AddChecklistSheet({
               borderRadius: 10,
             }}
           >
-            <Text style={{ textAlign: "center" }}>Done</Text>
+            <Text
+              style={{ textAlign: "center", color: colors.backgrounds.input }}
+            >
+              Done
+            </Text>
           </Pressable>
         </View>
       </KeyboardAvoidingView>

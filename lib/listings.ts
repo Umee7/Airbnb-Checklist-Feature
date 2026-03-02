@@ -19,14 +19,14 @@ export const ALL_LISTINGS = [
     title: "Minimal studio in Lower Parel",
     subtitle: "₹6,900 / night",
     badgeText: "Superhost",
-    image: require("../assets/card.png"),
+    image: require("../assets/images/Sofa.png"),
   },
   {
     id: "nearby-4",
     title: "Luxury penthouse in Worli",
     subtitle: "₹18,500 / night",
     badgeText: "Rare find",
-    image: require("../assets/card2.jpg"),
+    image: require("../assets/images/Hall.png"),
   },
 
   // Goa / Beach
@@ -35,14 +35,14 @@ export const ALL_LISTINGS = [
     title: "Beach house in North Goa",
     subtitle: "₹15,300 / night",
     badgeText: "Popular",
-    image: require("../assets/card.png"),
+    image: require("../assets/images/Fountain.png"),
   },
   {
     id: "popular-2",
     title: "Private villa with pool in Anjuna",
     subtitle: "₹22,000 / night",
     badgeText: "Guest Favourite",
-    image: require("../assets/card2.jpg"),
+    image: require("../assets/images/Woman.png"),
   },
   {
     id: "popular-3",
@@ -65,14 +65,14 @@ export const ALL_LISTINGS = [
     title: "Mountain cabin in Manali",
     subtitle: "₹7,600 / night",
     badgeText: "Recommended",
-    image: require("../assets/card.png"),
+    image: require("../assets/images/Apartment.png"),
   },
   {
     id: "recommended-2",
     title: "Glass cabin in Kasol",
     subtitle: "₹10,200 / night",
     badgeText: "Guest Favourite",
-    image: require("../assets/card2.jpg"),
+    image: require("../assets/images/Sofa.png"),
   },
   {
     id: "recommended-3",

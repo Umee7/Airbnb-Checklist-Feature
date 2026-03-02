@@ -4,7 +4,7 @@ import { Text, View, Pressable, FlatList, Dimensions } from "react-native";
 import { useState } from "react";
 
 import WishlistCard from "@/components/Cards/WishlistCard";
-import CloseIcon from "../../components/Icons/AddIcon";
+import CloseIcon from "../../components/Icons/CloseIcon";
 
 import { ALL_LISTINGS } from "@/lib/listings";
 import { useWishlist } from "@/hooks/useWishlist";
@@ -116,7 +116,7 @@ export default function Wishlists() {
             justifyContent: "center",
             alignItems: "center",
             borderRadius: 80,
-            backgroundColor: primitive.grey[50],
+            backgroundColor: colors.buttons.surface,
           }}
         >
           <Text
