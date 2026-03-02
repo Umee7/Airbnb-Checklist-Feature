@@ -50,8 +50,7 @@ Built before a single screen was coded. Primitive tokens (colors, spacing, type 
 
 The icon set is custom SVG drawn in Figma. The Figma file and the React Native codebase share the same naming system. That kind of parity makes the whole thing easier to maintain and scale.
 
-<!-- drop theme toggle GIF here -->
-![Theme Toggle](./assets/images/ThemeDemo.gif)
+<img src="./assets/images/ThemeDemo.gif" width="320" />
 
 ---
 
@@ -61,7 +60,7 @@ Section-based scroll architecture, multiple horizontal carousels, listing card s
 
 Getting the motion right took real effort. Spring physics, not linear easing. It sounds like a minor detail until you feel the difference on a device.
 
-![Explore Demo](./assets/images/Explore.gif)
+<img src="./assets/images/Explore.gif" width="320" />
 
 ---
 
@@ -77,8 +76,7 @@ This is what end-to-end feature ownership looks like: designed in Figma, built i
 
 ![Checklist Banner](./assets/images/trips-screen.png)
 
-<!-- drop checklist interaction GIF here -->
-![Checklist Demo](./assets/images/ChecklistDemo.gif)
+<img src="./assets/images/ChecklistDemo.gif" width="320" />
 
 ---
 
@@ -90,8 +88,7 @@ The real work was the architecture underneath it. Instead of local component sta
 
 This is exactly the kind of component separation that makes React Native codebases maintainable at scale. It came naturally because component-level thinking is already how I approach everything, in Figma and in code.
 
-<!-- drop wishlist GIF here -->
-![Wishlist Demo](./assets/images/WishlistDemo.gif)
+<img src="./assets/images/WishlistDemo.gif" width="320" />
 
 ---
 
@@ -99,7 +96,7 @@ This is exactly the kind of component separation that makes React Native codebas
 
 Full screen built from scratch: action bar, search and settings, filter button group with toggle state, reusable filter components, and a properly designed empty state with custom illustration and token-aware typography.
 
-![Messages Demo](./assets/images/MessagesDemo.gif)
+<img src="./assets/images/MessagesDemo.gif" width="320" />
 
 ---
 
@@ -107,8 +104,7 @@ Full screen built from scratch: action bar, search and settings, filter button g
 
 Modular `ProfileCard` component supporting vertical and horizontal layouts, optional subtitle, and adjustable image sizing. Theme toggle wired to global state. Proper shadow and elevation parity across Android and iOS. Design tokens used throughout, no one-off styling anywhere.
 
-<!-- drop profile GIF here -->
-![Profile Demo](./assets/images/ProfileDemo.gif)
+<img src="./assets/images/ProfileDemo.gif" width="320" />
 
 ---
 
@@ -172,4 +168,4 @@ npx expo start
 
 ---
 
-*Designed and built by Umee*
+*Designed and built by Umesh*
