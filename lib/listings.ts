@@ -56,7 +56,7 @@ export const ALL_LISTINGS = [
     title: "Cliffside retreat in Vagator",
     subtitle: "₹13,400 / night",
     badgeText: "Top rated",
-    image: require("../assets/card2.jpg"),
+    image: require("../assets/images/Art.png"),
   },
 
   // Mountains
@@ -79,7 +79,7 @@ export const ALL_LISTINGS = [
     title: "Lake view stay in Udaipur",
     subtitle: "₹12,500 / night",
     badgeText: "Scenic stay",
-    image: require("../assets/card.png"),
+    image: require("../assets/images/couple.png"),
   },
   {
     id: "recommended-4",
